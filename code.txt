@@ -1,0 +1,12 @@
+var a:int = 5;
+var b:int = 10;
+var c:string = "ana are mere";
+var d:char = 'x';
+var e:bool = true;
+var arr:array[5] of type int;
+write(a + b);
+if (a <= b) {
+    write(a);
+} else {
+    write(b);
+}

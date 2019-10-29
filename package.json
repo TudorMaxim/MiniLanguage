@@ -4,7 +4,7 @@
   "description": "A mini programming language.",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js",
+    "start": "node -r esm src/index.js",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix"
   },
@@ -14,5 +14,10 @@
   ],
   "author": "Tudor Maxim",
   "license": "ISC",
-  "devDependencies": {}
+  "devDependencies": {},
+  "dependencies": {
+    "esm": "^3.2.25",
+    "fs": "0.0.1-security",
+    "path": "^0.12.7"
+  }
 }
