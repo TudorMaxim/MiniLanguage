@@ -16,7 +16,8 @@ export default class Scanner {
 	constructor() {
 		this.pif = new ProgramInternalForm()
 		this.stConstants = new SymbolTable()
-		this.stIdentifiers = new SymbolTable()
+        this.stIdentifiers = new SymbolTable()
+        this.errors = []
 	}
 
 	isIdentifier(token) {
@@ -30,7 +31,7 @@ export default class Scanner {
 	getCharToken(line, i, lineCnt) {
 		let token = line[i] + line[i + 1] + line[i + 2]
 		if (line[i] !== '\'' || line[i + 2] != '\'') {
-			throw new Error(`Lexical error at line ${lineCnt}: Invalid character ${token}.`)
+			this.errors.push(`Lexical error at line ${lineCnt}: Invalid character ${token}.`)
 		}
 		return {
 			token, 
@@ -49,7 +50,7 @@ export default class Scanner {
 			i++
 		}
 		if (i === line.length) {
-			throw new Error(` Lexical error at line ${lineCnt}: Invalid string ${token}.`)
+			this.errors.push(`Lexical error at line ${lineCnt}: Invalid string ${token}.`)
 		}
 		return {
 			token: token,
@@ -140,7 +141,7 @@ export default class Scanner {
                     let node = this.stIdentifiers.add(token)
                     this.pif.add(codificationTable['identifier'], node)
                 } else {
-					throw new Error(`Lexical Error at line ${lineCnt}: Unknown token ${token}`)
+					this.errors.push(`Lexical Error at line ${lineCnt}: Unknown token ${token}`)
 				}
 			}
 		}

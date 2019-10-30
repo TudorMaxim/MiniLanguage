@@ -2,12 +2,12 @@ import Scanner from './Scanner'
 import { codificationTable } from './LanguageSpecification'
 
 let scanner = new Scanner()
-try {
-	scanner.scan()
-} catch(error) {
-	console.log(error.message)
+scanner.scan();
+if (scanner.errors.length > 0) {
+	for (let error of scanner.errors) {
+		console.log(error);
+	}
 }
-
 
 console.log('Program Internal Form:')
 for (let index in scanner.pif.content) {
