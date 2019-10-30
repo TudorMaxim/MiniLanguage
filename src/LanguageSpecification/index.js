@@ -1,14 +1,14 @@
 export const reservedWords = [
-	'var', 'const', 'int', 'bool', 'char', 'string', 'array', 'of', 
-	'read', 'write', 'if', 'else', 'do', 'while', 'for', 'and', 'or', 'not'
+    'var', 'array', 'of', 'int', 'bool', 'char', 'string', 'read', 'write', 
+    'if', 'else', 'do', 'while', 'for', 'and', 'or', 'not'
 ]
 
 export const operators = [
-	'+', '-', '*', '/', '%', '=',  '==', '!=', '>', '<', '<=', '>='
+	'+', '-', '*', '/', '%', '=',  '==', '!=', '<', '>', '<=', '>='
 ]
 
 export const separators = [
-	'(', ')', '[', ']', '{', '}', ' ', ':', ';', ','
+    '(', ')', '[', ']', '{', '}', ':', ';', ',', ' '
 ]
 
 export const identifierRegex = /^(?=.{1,8}$)_{0,1}[a-zA-Z]+\d*$/

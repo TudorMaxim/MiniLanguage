@@ -129,13 +129,13 @@ export default class Scanner {
 			for (let token of this.generateTokens(line, lineCnt)) {
 				if (lexicon.includes(token)) {
 					this.pif.add(codificationTable[token], null)
-				} else if (this.isIdentifier(token)) {
-					let node = this.stIdentifiers.add(token)
-					this.pif.add(codificationTable['identifier'], node)
 				} else if (this.isConstant(token)) {
 					let node = this.stConstants.add(token)
 					this.pif.add(codificationTable['constant'], node)
-				} else {
+                } else if (this.isIdentifier(token)) {
+                    let node = this.stIdentifiers.add(token)
+                    this.pif.add(codificationTable['identifier'], node)
+                } else {
 					throw new Error(`Lexical Error at line ${lineCnt}: Unknown token ${token}`)
 				}
 			}
