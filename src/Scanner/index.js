@@ -111,7 +111,10 @@ export default class Scanner {
 				token += line[i]
 				i++
 			}
-		}
+        }
+        if (token) {
+            tokens.push(token)
+        }
 		return tokens
 	}
 
