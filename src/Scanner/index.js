@@ -115,7 +115,8 @@ export default class Scanner {
         if (token) {
             tokens.push(token)
         }
-		return tokens
+        tokens = tokens.filter(token => token !== "\r" && token !=="\n");
+        return tokens;
 	}
 
 	scan() {
